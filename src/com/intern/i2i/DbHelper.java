@@ -30,9 +30,9 @@ public class DbHelper {
 
 	public void createHazelcastTable() {
 		conn = null;
-		//DbHelper helper = new DbHelper();
 		stmt = null;
 		query = "";
+		
 		try {
 			conn = getConnection();
 			if (conn == null) {
@@ -40,8 +40,8 @@ public class DbHelper {
 				return;
 			}
 			stmt = conn.createStatement();
-			// query = "CREATE TABLE Hazelcast(Numbers INT)";
-
+			//query = "CREATE TABLE Hazelcast(Numbers INT)";
+			
 			query = "DECLARE\r\n" 
 					+ "sql_stmt long;\r\n" 
 					+ "BEGIN\r\n" 
@@ -59,14 +59,12 @@ public class DbHelper {
 			
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			showErrorMessages(e);
 		}
 	}
 
 	public long insertData(int numbersOfData) {
 		conn = null;
-		//DbHelper helper = new DbHelper();
 		pstmt = null;
 		long startTime, endTime, elapsedTime = 0;
 		query = "";
@@ -87,7 +85,6 @@ public class DbHelper {
 			pstmt.close();
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			showErrorMessages(e);
 		}
 		return elapsedTime;
@@ -95,7 +92,6 @@ public class DbHelper {
 
 	public long selectData(int numbersOfData) {
 		conn = null;
-		//DbHelper helper = new DbHelper();
 		stmt = null;
 		results = null;
 		long startTime, endTime, elapsedTime = 0;
@@ -117,12 +113,12 @@ public class DbHelper {
 			stmt.close();
 			conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			showErrorMessages(e);
 		}
 		return elapsedTime;
 	}
 
+	/*
 	public void dropTableFromDb() {
 		conn = null;
 		//DbHelper helper = new DbHelper();
@@ -141,10 +137,9 @@ public class DbHelper {
 			showErrorMessages(e);
 		}
 	}
-
+*/
 	public void truncateTable() {
 		conn = null;
-		//DbHelper helper = new DbHelper();
 		stmt = null;
 		query = "";
 		try {
